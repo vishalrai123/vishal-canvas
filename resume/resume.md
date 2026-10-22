@@ -85,4 +85,4 @@ results:
   - 30% faster bulk report processing through distributed, highly available execution.
 ---
 
-Rendered by `npm run resume`. Edit the front matter above, then run the command. The 1-page resume is written to `public/resume/vishal-rai-resume.pdf` (linked from the site); the 2-page CV and the DOCX versions are written to `resume/build/` for personal use.
+Rendered by `npm run resume`. Edit the front matter above, then run the command. The 1-page resume is written to `public/resume/vishal-rai-resume.pdf` (linked from the site); all four files (PDF and DOCX of the resume and the 2-page CV) are kept in `resume/files/`.

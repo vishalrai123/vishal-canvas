@@ -1,5 +1,6 @@
 // Renders the ATS-friendly resume (1 page) and CV (2 pages), each as PDF and DOCX.
-// Only the 1-page PDF is published: public/resume/vishal-rai-resume.pdf. Everything else goes to resume/build/.
+// The 1-page PDF is published on the site: public/resume/vishal-rai-resume.pdf.
+// All four files (resume and CV, PDF and DOCX) are kept in the repo under resume/files/; HTML intermediates go to resume/build/.
 // Content: profile.md (name, contact, education, languages) + resume/resume.md (phone, roles, bullets).
 // PDF printing uses a local Chromium browser (Edge by default); set BROWSER_PATH to override.
 import fs from "node:fs";
@@ -23,6 +24,7 @@ interface Role {
 
 const SITE = path.resolve("public/resume");
 const BUILD = path.resolve("resume/build");
+const FILES = path.resolve("resume/files");
 const BROWSER = process.env.BROWSER_PATH ?? "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe";
 const NAVY = "1F3A5F";
 
@@ -160,17 +162,18 @@ const pages = (pdf: Buffer) => (pdf.toString("latin1").match(/\/Type\s*\/Page[^s
 async function main() {
   fs.mkdirSync(SITE, { recursive: true });
   fs.mkdirSync(BUILD, { recursive: true });
+  fs.mkdirSync(FILES, { recursive: true });
   const NAMES: Record<Variant, string> = { resume: "vishal-rai-resume", cv: "vishal-rai-CV" };
   const EXPECT: Record<Variant, number> = { resume: 1, cv: 2 };
   let bad = 0;
   for (const v of ["resume", "cv"] as Variant[]) {
     const htmlFile = path.join(BUILD, `${NAMES[v]}.html`);
     // only the 1-page resume PDF is published on the website
-    const pdfFile = path.join(v === "resume" ? SITE : BUILD, `${NAMES[v]}.pdf`);
+    const pdfFile = path.join(v === "resume" ? SITE : FILES, `${NAMES[v]}.pdf`);
     fs.writeFileSync(htmlFile, html(v));
     execFileSync(BROWSER, ["--headless=new", "--disable-gpu", "--no-pdf-header-footer", `--print-to-pdf=${pdfFile}`, pathToFileURL(htmlFile).href], { stdio: "ignore" });
-    fs.writeFileSync(path.join(BUILD, `${NAMES[v]}.docx`), await Packer.toBuffer(docx(v)));
-    if (v === "resume") fs.copyFileSync(pdfFile, path.join(BUILD, `${NAMES[v]}.pdf`));
+    fs.writeFileSync(path.join(FILES, `${NAMES[v]}.docx`), await Packer.toBuffer(docx(v)));
+    if (v === "resume") fs.copyFileSync(pdfFile, path.join(FILES, `${NAMES[v]}.pdf`));
     const n = pages(fs.readFileSync(pdfFile));
     console.log(`${NAMES[v]}: PDF ${n} page(s), expected ${EXPECT[v]}`);
     if (n !== EXPECT[v]) bad++;

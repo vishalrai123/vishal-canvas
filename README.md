@@ -20,7 +20,7 @@ Edit `profile.md` (name, headline, location, email, links, experience, achieveme
 
 ## Resume (ATS-friendly)
 
-`resume/resume.md` holds the resume-only content, including the phone number, written from the task files. Run `npm run resume` (Windows, uses Edge to print). It writes the 1-page resume to `public/resume/vishal-rai-resume.pdf`, the only resume published and linked by the site, and writes the 2-page `vishal-rai-CV.pdf` plus DOCX versions of both to `resume/build/` (not committed). The script checks each PDF has the expected page count.
+`resume/resume.md` holds the resume-only content, including the phone number, written from the task files. Run `npm run resume` (Windows, uses Edge to print). It writes the 1-page resume to `public/resume/vishal-rai-resume.pdf`, the only resume published and linked by the site, and keeps all four files (the 1-page resume and the 2-page `vishal-rai-CV.pdf`, each as PDF and DOCX) in `resume/files/`, which is committed but not published on the site. The script checks each PDF has the expected page count.
 
 ## Develop
 
