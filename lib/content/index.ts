@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { z } from "zod";
 import { parseTask } from "./parse";
 import type { Profile, Ranked, Task } from "./types";
 
@@ -92,15 +93,38 @@ export const getSearchIndex = () =>
     summary: t.meta.oneLineSummary,
   }));
 
-export function getProfile(): Profile {
-  const { data, content } = matter(fs.readFileSync(path.resolve("profile.md"), "utf8"));
-  return {
-    name: String(data.name),
-    headline: String(data.headline),
-    tagline: String(data.tagline),
-    about: content.trim(),
-    links: (data.links ?? []) as Profile["links"],
-  };
+const Lead = z.object({ lead: z.string(), text: z.string() });
+const ProfileSchema = z.object({
+  name: z.string(),
+  title: z.string(),
+  degree: z.string(),
+  headline: z.string(),
+  location: z.string(),
+  email: z.string().email(),
+  links: z.array(z.object({ label: z.string(), url: z.string().url() })),
+  stack: z.array(z.string()),
+  experience: z.array(
+    z.object({
+      role: z.string(),
+      company: z.string(),
+      period: z.string(),
+      groups: z.array(z.object({ name: z.string(), items: z.array(Lead) })),
+    }),
+  ),
+  achievements: z.array(Lead),
+  education: z.array(z.object({ school: z.string(), degree: z.string(), period: z.string() })),
+  languages: z.array(z.object({ name: z.string(), level: z.string() })),
+  competencies: z.array(z.object({ area: z.string(), items: z.array(z.string()) })),
+});
+
+export function getProfile(file = path.resolve("profile.md")): Profile {
+  const { data, content } = matter(fs.readFileSync(file, "utf8"));
+  const p = ProfileSchema.safeParse(data);
+  if (!p.success) {
+    const issues = p.error.issues.map((i) => `${i.path.join(".")}: ${i.message}`).join("\n");
+    throw new Error(`profile.md is invalid:\n${issues}`);
+  }
+  return { ...p.data, summary: content.trim() };
 }
 
 // "DevOps Automation / Database Release Engineering" groups under "DevOps Automation"
@@ -115,10 +139,4 @@ export function getFeatured(n = 4): Task[] {
   const all = getAllTasks();
   const flagged = all.filter((t) => t.meta.featured);
   return (flagged.length ? flagged : all.filter((t) => /\d+%/.test(firstValue(t)))).slice(0, n);
-}
-
-export function getQuantifiedHighlights(n = 8) {
-  return getAllTasks()
-    .flatMap((t) => (t.sections.highlights ?? []).filter((h) => /\d+%/.test(h)).map((h) => ({ text: h, task: t })))
-    .slice(0, n);
 }

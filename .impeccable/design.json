@@ -1,133 +1,93 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-22T13:03:37.094428+00:00",
+  "generatedAt": "2026-10-22T16:17:43.934566+00:00",
   "title": "Design System: Vishal Rai Portfolio",
   "extensions": {
     "colorMeta": {
-      "ground": {
+      "bg": {
         "role": "neutral",
-        "displayName": "Teal-Black Ground",
-        "canonical": "oklch(0.155 0.025 215)",
-        "tonalRamp": [
-          "oklch(0.15 0.025 215)",
-          "oklch(0.25 0.025 215)",
-          "oklch(0.35 0.025 215)",
-          "oklch(0.48 0.025 215)",
-          "oklch(0.60 0.025 215)",
-          "oklch(0.72 0.025 215)",
-          "oklch(0.84 0.025 215)",
-          "oklch(0.95 0.025 215)"
-        ]
+        "displayName": "Canvas",
+        "canonical": "#0d1117"
       },
-      "plate": {
+      "surface": {
         "role": "neutral",
-        "displayName": "Plate",
-        "canonical": "oklch(0.205 0.03 215)",
-        "tonalRamp": [
-          "oklch(0.15 0.03 215)",
-          "oklch(0.25 0.03 215)",
-          "oklch(0.35 0.03 215)",
-          "oklch(0.48 0.03 215)",
-          "oklch(0.60 0.03 215)",
-          "oklch(0.72 0.03 215)",
-          "oklch(0.84 0.03 215)",
-          "oklch(0.95 0.03 215)"
-        ]
+        "displayName": "Surface",
+        "canonical": "#161b22"
       },
-      "plate-raised": {
+      "surface-2": {
         "role": "neutral",
-        "displayName": "Raised Plate",
-        "canonical": "oklch(0.26 0.034 215)",
-        "tonalRamp": [
-          "oklch(0.15 0.034 215)",
-          "oklch(0.25 0.034 215)",
-          "oklch(0.35 0.034 215)",
-          "oklch(0.48 0.034 215)",
-          "oklch(0.60 0.034 215)",
-          "oklch(0.72 0.034 215)",
-          "oklch(0.84 0.034 215)",
-          "oklch(0.95 0.034 215)"
-        ]
+        "displayName": "Raised Surface",
+        "canonical": "#21262d"
       },
-      "sand": {
+      "line": {
         "role": "neutral",
-        "displayName": "Warm Sand Text",
-        "canonical": "oklch(0.94 0.02 85)",
-        "tonalRamp": [
-          "oklch(0.15 0.02 85)",
-          "oklch(0.25 0.02 85)",
-          "oklch(0.35 0.02 85)",
-          "oklch(0.48 0.02 85)",
-          "oklch(0.60 0.02 85)",
-          "oklch(0.72 0.02 85)",
-          "oklch(0.84 0.02 85)",
-          "oklch(0.95 0.02 85)"
-        ]
+        "displayName": "Border",
+        "canonical": "#30363d"
       },
-      "sand-dim": {
+      "ink": {
         "role": "neutral",
-        "displayName": "Dim Sand Text",
-        "canonical": "oklch(0.76 0.025 85)",
-        "tonalRamp": [
-          "oklch(0.15 0.025 85)",
-          "oklch(0.25 0.025 85)",
-          "oklch(0.35 0.025 85)",
-          "oklch(0.48 0.025 85)",
-          "oklch(0.60 0.025 85)",
-          "oklch(0.72 0.025 85)",
-          "oklch(0.84 0.025 85)",
-          "oklch(0.95 0.025 85)"
-        ]
+        "displayName": "Foreground",
+        "canonical": "#e6edf3"
       },
-      "vermilion": {
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Foreground",
+        "canonical": "#8b949e"
+      },
+      "accent": {
         "role": "primary",
-        "displayName": "Projector Vermilion",
-        "canonical": "oklch(0.7 0.18 40)",
-        "tonalRamp": [
-          "oklch(0.15 0.18 40)",
-          "oklch(0.25 0.18 40)",
-          "oklch(0.35 0.18 40)",
-          "oklch(0.48 0.18 40)",
-          "oklch(0.60 0.18 40)",
-          "oklch(0.72 0.18 40)",
-          "oklch(0.84 0.18 40)",
-          "oklch(0.95 0.18 40)"
-        ]
+        "displayName": "Electric Blue",
+        "canonical": "#1f6feb"
+      },
+      "link": {
+        "role": "primary",
+        "displayName": "Link Blue",
+        "canonical": "#58a6ff"
+      },
+      "key": {
+        "role": "tertiary",
+        "displayName": "Code Keyword Purple",
+        "canonical": "#d2a8ff"
+      },
+      "str": {
+        "role": "tertiary",
+        "displayName": "Code String Blue",
+        "canonical": "#a5d6ff"
+      },
+      "ok": {
+        "role": "secondary",
+        "displayName": "Prompt Green",
+        "canonical": "#3fb950"
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Home hero and page titles; mixes weight 300 and 600."
+        "purpose": "Name and scene headings."
       },
-      "body": {
-        "displayName": "Body",
-        "purpose": "Reading text at a 65-68ch measure."
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Commands, paths, counts and tool chips."
       }
     },
     "shadows": [
       {
-        "name": "plate-fan",
-        "value": "0 18px 40px -18px rgb(0 0 0 / 0.6)",
-        "purpose": "Lifts the hero plate fan off the ground."
+        "name": "panel-lift",
+        "value": "0 16px 48px rgb(1 4 9 / 0.35)",
+        "purpose": "Intro terminal and command palette only."
       }
     ],
     "motion": [
       {
-        "name": "ease-out-expo",
-        "value": "expo.out",
-        "purpose": "Hero plate entrance (GSAP)."
-      },
-      {
-        "name": "slice-expand",
-        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
-        "purpose": "Accordion slice width change, 0.7s."
+        "name": "reveal",
+        "value": "opacity and translateY 18px, 0.6s cubic-bezier(0.16, 1, 0.3, 1), 70ms stagger",
+        "purpose": "Scene content settles in the first time a scene is seen."
       }
     ],
     "breakpoints": [
       {
-        "name": "lg",
-        "value": "1024px"
+        "name": "lg-snap",
+        "value": "min-width 1024px and min-height 700px"
       }
     ]
   },
@@ -136,73 +96,65 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The single main action on a page.",
-      "html": "<a class=\"ds-btn-primary\" href=\"#\">See the work</a>",
-      "css": ".ds-btn-primary{display:inline-block;background:oklch(0.7 0.18 40);color:oklch(0.17 0.03 215);padding:14px 28px;border-radius:9999px;font-weight:500;text-decoration:none;transition:transform .2s}.ds-btn-primary:hover{transform:translateY(-2px)}.ds-btn-primary:focus-visible{outline:2px solid oklch(0.7 0.18 40);outline-offset:3px}"
+      "description": "Main action.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Explore my work</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:6px;background:#1f6feb;color:#fff;font-weight:500;text-decoration:none}.ds-btn:hover{filter:brightness(1.1)}.ds-btn:focus-visible{outline:2px solid #58a6ff;outline-offset:2px}"
     },
     {
       "name": "Secondary Button",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "The alternative action beside the primary.",
-      "html": "<a class=\"ds-btn-secondary\" href=\"#\">Read the resume</a>",
-      "css": ".ds-btn-secondary{display:inline-block;border:1px solid oklch(0.36 0.03 210 / .7);color:oklch(0.94 0.02 85);padding:14px 28px;border-radius:9999px;font-weight:500;text-decoration:none;transition:background .2s}.ds-btn-secondary:hover{background:oklch(0.205 0.03 215)}.ds-btn-secondary:focus-visible{outline:2px solid oklch(0.7 0.18 40);outline-offset:3px}"
+      "description": "Alternative action.",
+      "html": "<a class=\"ds-btn2\" href=\"#\">Download resume</a>",
+      "css": ".ds-btn2{display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:6px;border:1px solid #30363d;color:#e6edf3;text-decoration:none}.ds-btn2:hover{background:#161b22;border-color:#8b949e}"
     },
     {
-      "name": "Plate",
-      "kind": "card",
-      "refersTo": "plate",
-      "description": "Holds a project, outcome or highlight.",
-      "html": "<div class=\"ds-plate\"><p class=\"ds-plate-t\">New environment creation time cut by over 40%.</p><p class=\"ds-plate-s\">Cloud Infrastructure</p></div>",
-      "css": ".ds-plate{background:oklch(0.205 0.03 215);border:1px solid oklch(0.36 0.03 210 / .7);border-radius:1.5rem;padding:32px;color:oklch(0.94 0.02 85)}.ds-plate-t{font-size:1.75rem;line-height:1.2;margin:0}.ds-plate-s{color:oklch(0.76 0.025 85);margin:16px 0 0}"
+      "name": "Terminal Panel",
+      "kind": "custom",
+      "refersTo": "panel",
+      "description": "Intro whoami terminal.",
+      "html": "<div class=\"ds-term\"><div class=\"ds-term-h\">zsh</div><p><span class=\"ds-p\">$</span> whoami</p><p>Vishal Rai</p></div>",
+      "css": ".ds-term{background:#161b22;border:1px solid #30363d;border-radius:12px;font-family:ui-monospace,monospace;font-size:14px;color:#e6edf3;overflow:hidden}.ds-term-h{border-bottom:1px solid #30363d;padding:8px 16px;color:#8b949e;font-size:12px}.ds-term p{margin:0;padding:4px 16px}.ds-p{color:#3fb950}"
     },
     {
-      "name": "Filter Chip",
+      "name": "Tool Chip",
       "kind": "chip",
-      "refersTo": "button-secondary",
-      "description": "Toggles a filter; filled when pressed.",
-      "html": "<button class=\"ds-chip\" aria-pressed=\"false\">Platform Engineering</button><button class=\"ds-chip ds-chip-on\" aria-pressed=\"true\">All</button>",
-      "css": ".ds-chip{border:1px solid oklch(0.36 0.03 210 / .7);background:transparent;color:oklch(0.76 0.025 85);padding:6px 16px;border-radius:9999px;font-size:.875rem;margin-right:8px}.ds-chip:hover{color:oklch(0.94 0.02 85)}.ds-chip-on{background:oklch(0.7 0.18 40);border-color:oklch(0.7 0.18 40);color:oklch(0.17 0.03 215)}"
-    },
-    {
-      "name": "Navigation Pill",
-      "kind": "nav",
-      "refersTo": "nav-pill",
-      "description": "Floating site navigation.",
-      "html": "<nav class=\"ds-nav\"><b>Vishal Rai</b><a href=\"#\">Work</a><a href=\"#\">Resume</a><a href=\"#\">Skills</a></nav>",
-      "css": ".ds-nav{display:flex;gap:16px;align-items:center;border:1px solid oklch(0.36 0.03 210 / .7);background:oklch(0.155 0.025 215 / .85);border-radius:9999px;padding:8px 20px;color:oklch(0.76 0.025 85)}.ds-nav b{color:oklch(0.94 0.02 85);margin-right:auto}.ds-nav a{color:inherit;text-decoration:none}.ds-nav a:hover{color:oklch(0.94 0.02 85)}"
+      "refersTo": "chip",
+      "description": "A tool used in a project.",
+      "html": "<span class=\"ds-chip\">Kubernetes</span>",
+      "css": ".ds-chip{display:inline-block;background:#21262d;color:#8b949e;border-radius:6px;padding:2px 8px;font-family:ui-monospace,monospace;font-size:12px}"
     }
   ],
   "narrative": {
-    "northStar": "The Screening Room",
-    "overview": "The site is a screening, not a brochure. Twenty-one projects are cut like a film: a teal-black grade, warm sand type, and a single vermilion that only ever means act here.",
+    "northStar": "The Repository",
+    "overview": "The site reads like a well-kept repository: a GitHub-dark canvas, a terminal that introduces the owner, a competencies.ts file for skills, and an index that tracks where you are.",
     "keyCharacteristics": [
-      "One saturated accent used only for action and focus",
-      "Extreme weight contrast in the display face",
-      "Plates are the only container",
-      "Motion on the home page only, off under reduced motion"
+      "GitHub-dark neutrals with one electric-blue accent",
+      "Monospace only for code and data",
+      "Full-screen scenes with native scroll snapping",
+      "Command palette and live project preview"
     ],
     "rules": [
       {
         "name": "The One Accent Rule",
-        "body": "Vermilion marks an action or a focus state and nothing else.",
+        "body": "Blue is the only colour outside code surfaces.",
         "section": "colors"
       },
       {
-        "name": "The Two-Weight Line Rule",
-        "body": "A display headline mixes one light run and one semibold run.",
+        "name": "The Real Code Rule",
+        "body": "Monospace is used for code or data, never as decoration.",
         "section": "typography"
       }
     ],
     "dos": [
-      "Do keep all motion on the home page, from visible defaults, and off under prefers-reduced-motion.",
-      "Do write copy only from the task files.",
-      "Do keep inner pages restrained so they print and skim well."
+      "Do keep every scene within one viewport on common desktop sizes.",
+      "Do drive scroll state with a single IntersectionObserver and CSS transitions.",
+      "Do take every word from profile.md, resume content and the task files."
     ],
     "donts": [
-      "Don't use stock photography or invented imagery.",
-      "Don't add eyebrow labels, section numbers or gradient text.",
-      "Don't introduce a second accent colour."
+      "Don't create scroll containers around scenes, or snapping breaks.",
+      "Don't use the code colours outside code and terminal surfaces.",
+      "Don't add eyebrow labels, gradient text or stock imagery."
     ]
   }
 }

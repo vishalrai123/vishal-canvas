@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { loadAll } from "../lib/content";
+import { getProfile, loadAll } from "../lib/content";
 import { parseTask } from "../lib/content/parse";
 
 const TITLES = [
@@ -82,5 +82,22 @@ describe("loader", () => {
   it("fails on an empty directory", () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), "tasks-"));
     expect(loadAll(dir).errors.join()).toContain("No TASK-NNN_*.md");
+  });
+});
+
+describe("profile and privacy", () => {
+  it("profile.md parses with experience, education and contact", () => {
+    const p = getProfile();
+    expect(p.experience[0].groups.length).toBeGreaterThan(0);
+    expect(p.education.length).toBeGreaterThan(0);
+    expect(p.email).toContain("@");
+    expect(p.summary.length).toBeGreaterThan(50);
+  });
+  it("no phone number appears in website content (it may live only in resume/)", () => {
+    // ten or more digits in one run of digits, spaces and dashes looks like a phone number; year ranges do not
+    const looksLikePhone = (text: string) => (text.match(/\+?\d[\d\s-]{8,}\d/g) ?? []).some((m) => m.replace(/\D/g, "").length >= 10);
+    const files = ["profile.md", ...fs.readdirSync("tasks").map((f) => path.join("tasks", f))];
+    for (const f of files) expect(looksLikePhone(fs.readFileSync(f, "utf8")), f).toBe(false);
+    expect(looksLikePhone("+91 90000 00000")).toBe(true);
   });
 });

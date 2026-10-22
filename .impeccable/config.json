@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "calibri",
+        "createdAt": "2026-10-22T15:51:08.497Z",
+        "reason": "Assistant decision: Calibri is used only in the generated ATS resume (PDF/DOCX), a separate print document, not the website"
+      }
+    ]
+  }
+}

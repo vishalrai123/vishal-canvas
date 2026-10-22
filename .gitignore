@@ -43,3 +43,5 @@ tsconfig.tsbuildinfo
 .impeccable/mocks/
 .impeccable/live/
 .impeccable/hook.cache.json
+
+resume/build/

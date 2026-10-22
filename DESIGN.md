@@ -1,144 +1,155 @@
 ---
 name: Vishal Rai Portfolio
-description: A dark, cinematic screening of one engineer's work, with a calm readable reel for skimmers.
+description: A developer portfolio in GitHub-dark, told as full-screen scenes that switch as you scroll.
 colors:
-  ground: "oklch(0.155 0.025 215)"
-  plate: "oklch(0.205 0.03 215)"
-  plate-raised: "oklch(0.26 0.034 215)"
-  sand: "oklch(0.94 0.02 85)"
-  sand-dim: "oklch(0.76 0.025 85)"
-  vermilion: "oklch(0.7 0.18 40)"
-  ground-light: "oklch(0.97 0.012 85)"
-  plate-light: "oklch(0.94 0.015 85)"
-  ink-light: "oklch(0.2 0.03 215)"
-  vermilion-light: "oklch(0.48 0.19 38)"
+  bg: "#0d1117"
+  surface: "#161b22"
+  surface-2: "#21262d"
+  line: "#30363d"
+  ink: "#e6edf3"
+  muted: "#8b949e"
+  accent: "#1f6feb"
+  link: "#58a6ff"
+  key: "#d2a8ff"
+  str: "#a5d6ff"
+  ok: "#3fb950"
+  bg-light: "#ffffff"
+  surface-light: "#f6f8fa"
+  line-light: "#d0d7de"
+  ink-light: "#1f2328"
+  muted-light: "#59636e"
+  accent-light: "#0969da"
+  key-light: "#8250df"
 typography:
   display:
-    fontFamily: "Outfit, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(2.15rem, 5.4vw, 5.25rem)"
-    fontWeight: 300
-    lineHeight: 1.08
-    letterSpacing: "-0.02em"
+    fontFamily: "Geist, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(2.75rem, 7vw, 5.5rem)"
+    fontWeight: 600
+    lineHeight: 1.1
+    letterSpacing: "-0.025em"
   headline:
-    fontFamily: "Outfit, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(2.25rem, 4vw, 3.75rem)"
-    fontWeight: 300
-    lineHeight: 1.08
-    letterSpacing: "-0.02em"
+    fontFamily: "Geist, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(1.875rem, 4vw, 3rem)"
+    fontWeight: 600
+    lineHeight: 1.1
+    letterSpacing: "-0.025em"
   title:
-    fontFamily: "Outfit, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.5rem"
-    fontWeight: 500
-    lineHeight: 1.25
+    fontFamily: "Geist, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.125rem"
+    fontWeight: 600
+    lineHeight: 1.3
   body:
     fontFamily: "Geist, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.0625rem"
+    fontSize: "1rem"
     fontWeight: 400
-    lineHeight: 1.65
-  label:
+    lineHeight: 1.6
+  list:
     fontFamily: "Geist, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "0.95rem"
+    fontWeight: 500
+    lineHeight: 1.4
+  mono:
+    fontFamily: "Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace"
     fontSize: "0.875rem"
     fontWeight: 400
-    lineHeight: 1.4
+    lineHeight: 1.6
+  code:
+    fontFamily: "Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace"
+    fontSize: "0.8rem"
+    fontWeight: 400
+    lineHeight: 1.6
 rounded:
-  sm: "4px"
+  sm: "6px"
+  md: "8px"
+  lg: "12px"
   pill: "9999px"
-  plate: "1.25rem"
-  panel: "1.5rem"
 spacing:
-  section: "10rem"
+  scene: "100svh"
   gutter: "1.5rem"
-  stack: "1.5rem"
+  stack: "1rem"
 components:
   button-primary:
-    backgroundColor: "{colors.vermilion}"
-    textColor: "{colors.ground}"
-    rounded: "{rounded.pill}"
-    padding: "14px 28px"
+    backgroundColor: "{colors.accent}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.sm}"
+    padding: "0 20px"
+    height: "44px"
   button-secondary:
-    backgroundColor: "{colors.ground}"
-    textColor: "{colors.sand}"
-    rounded: "{rounded.pill}"
-    padding: "14px 28px"
-  plate:
-    backgroundColor: "{colors.plate}"
-    textColor: "{colors.sand}"
-    rounded: "{rounded.panel}"
-    padding: "32px"
-  nav-pill:
-    backgroundColor: "{colors.ground}"
-    textColor: "{colors.sand}"
-    rounded: "{rounded.pill}"
-    padding: "8px 8px 8px 20px"
+    backgroundColor: "{colors.bg}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.sm}"
+    padding: "0 20px"
+    height: "44px"
+  panel:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.lg}"
+    padding: "20px"
+  chip:
+    backgroundColor: "{colors.surface-2}"
+    textColor: "{colors.muted}"
+    rounded: "{rounded.sm}"
+    padding: "2px 8px"
 ---
 
 # Design System: Vishal Rai Portfolio
 
 ## Overview
 
-**Creative North Star: "The Screening Room"**
+**Creative North Star: "The Repository"**
 
-The site is a screening, not a brochure. Twenty-one projects are cut like a film: a teal-black grade, warm sand type, and a single vermilion that only ever means "act here". The home page is the trailer, with scroll-driven motion and an asymmetric hero. Every inner page is the reading room: restrained, print-ready, and quiet so the work carries it.
+The site reads like a well-kept repository: a GitHub-dark canvas, a terminal that introduces the owner, a `competencies.ts` file for skills, and an index that tracks where you are. Each section is a full-screen scene; on large screens the page snaps from scene to scene, and the content of each scene settles in as it arrives. Case studies are calm reading pages in the same palette.
 
 **Key Characteristics:**
-- One saturated colour, used only for the primary action, focus and list markers.
-- Extreme weight contrast in the display face: light for the connective words, semibold for the claim.
-- Plates (stacked, bordered, softly raised surfaces) are the only container.
-- Motion lives on the home page only and disappears under reduced motion.
+- GitHub-dark neutrals with one electric-blue accent for actions, links and the active index.
+- Monospace only where it carries code, commands, paths, counts or labels from the data.
+- Full-screen scenes with native CSS scroll snapping; no animation library.
+- A command palette (Ctrl K) and a live project preview reward exploration.
 
 ## Colors
 
-A cool teal-black ground with warm sand text is the cinematic grade; vermilion is the warm counter-note.
+GitHub's dark palette: canvas `#0d1117`, surface `#161b22`, raised `#21262d`, border `#30363d`, foreground `#e6edf3`, muted `#8b949e`. Electric blue `#1f6feb` fills primary buttons; link blue `#58a6ff` marks links, focus and the active index. Purple `#d2a8ff`, string blue `#a5d6ff` and prompt green `#3fb950` appear only inside code and terminal surfaces. The light theme mirrors GitHub light.
 
-- **Teal-Black Ground** (`oklch(0.155 0.025 215)`): the page.
-- **Plate** (`oklch(0.205 0.03 215)`) and **Raised Plate** (`oklch(0.26 0.034 215)`): surfaces one and two steps above the ground.
-- **Warm Sand Text** (`oklch(0.94 0.02 85)`) and **Dim Sand Text** (`oklch(0.76 0.025 85)`): headings and reading text.
-- **Projector Vermilion** (`oklch(0.7 0.18 40)`): the single accent.
-
-**The One Accent Rule.** Vermilion marks an action or a focus state and nothing else. It is never used for decoration or large fills.
-
-The print stylesheet uses plain black on white (`#111`, `#333`, `#fff`, `#ccc`, `#f3f3f3`) with a dark rust accent (`#8a2c0d`) so the resume prints cleanly.
-
-A light theme swaps to a warm paper ground with ink text and a deeper vermilion for contrast; the resume print stylesheet forces black on white.
+**The One Accent Rule.** Blue is the only colour outside code surfaces. Purple and green never leave the terminal or code panels.
 
 ## Typography
 
-**Display font:** Outfit (variable), with system sans fallback.
-**Body font:** Geist, with system sans fallback.
+**Body and headings:** Geist. **Code, commands, labels, counts:** Geist Mono.
 
-Headings use weight 300 for connective words and 600 for the claim inside the same line. Body copy holds a 65 to 68 character measure at 1.65 line height. Hero display type is capped at 5.25rem so the headline stays within three lines.
+Display uses weight 600 with tight tracking; body copy holds about 70 characters at 1.6 line height. Project list rows use 0.95rem and the code panel 0.8rem so long arrays wrap legibly.
 
-**The Two-Weight Line Rule.** A display headline mixes one light run and one semibold run. Never set a whole headline in one mid weight.
+**The Real Code Rule.** Monospace is used for things that are code or data (commands, file names, paths, counts, tool names), never as decoration on prose.
 
 ## Layout
 
-Wide editorial containers (up to 80rem) with asymmetric splits: five parts to seven on the outcomes section, an offset hero with a fan of plates in the lower right. Sections are separated by 7 to 12rem of vertical space so each reads as a chapter. The floating pill navigation sits above all content. Below 1024px every multi-column arrangement becomes a single column and the accordion stacks open.
+Ten scenes, each at least one viewport tall: intro, about, three experience scenes (one per CV group), selected work, all projects, skills, education, contact. Content sits in a 72rem container. On screens at least 1024 by 700 the page uses mandatory scroll snapping; smaller screens scroll freely with a progress bar under the header. A fixed index on the right lists scene groups and highlights the current one.
 
 ## Elevation & Depth
 
-Depth is tonal first: ground, plate, raised plate. Only the hero plate fan carries a soft offset shadow (`0 18px 40px -18px rgb(0 0 0 / 0.6)`). A fixed film-grain noise layer at 7% opacity sits over the whole page.
+Flat and tonal: canvas, surface, raised surface, separated by 1px borders. Only the intro terminal and the command palette carry a soft shadow. A faint blue light follows the pointer on desktop, moved by transform only.
 
 ## Shapes
 
-Inline code and focus rings use a 4px radius. Pills for every action and for navigation; 1.25 to 1.5rem radius for plates; 1px hairline borders in a low-contrast teal. Authored SVG artifacts (a pipeline, a cluster) sit inside pill outlines in the headline.
+6px radius on buttons, chips and inline code; 12px on panels and cards; pills only for filter chips.
 
 ## Components
 
-- **Primary button:** vermilion pill with ink text, lifts 2px on hover.
-- **Secondary button:** outlined pill, fills to plate on hover.
-- **Plate:** bordered, rounded surface that holds a project, an outcome or a highlight.
-- **Accordion slice:** horizontal slices that expand on hover or keyboard focus, stacked and open on small screens.
-- **Filter chip:** outlined pill; filled vermilion when pressed.
-- **Navigation pill:** floating, solid, with a functional backdrop blur over scrolling content.
+- **Primary button:** electric-blue fill, white text, 44px tall.
+- **Secondary button:** bordered, fills to surface on hover.
+- **Panel:** surface fill with a 1px border; used for the terminal, code panel, preview and cards.
+- **Chip:** raised fill, monospace muted text, for tools.
+- **Filter chip:** bordered pill; link blue when pressed.
+- **Scene index:** short bars that grow and turn blue for the active scene; labels show on hover and for the active entry.
+- **Command palette:** native dialog with keyboard navigation over sections, projects, resume downloads and contact actions.
 
 ## Do's and Don'ts
 
 **Do**
-- Do keep all motion on the home page, from visible defaults, and off under `prefers-reduced-motion`.
-- Do write copy only from the task files; every number on the site comes from them.
-- Do keep inner pages restrained so they print and skim well.
+- Do keep every scene within one viewport on common desktop sizes.
+- Do drive scroll state with a single IntersectionObserver and CSS transitions.
+- Do take every word from profile.md, resume content and the task files.
 
 **Don't**
-- Don't use stock photography or invented imagery; use authored SVG.
-- Don't add eyebrow labels, section numbers or gradient text.
-- Don't introduce a second accent colour.
+- Don't create scroll containers around scenes (use overflow clip, not hidden), or snapping breaks.
+- Don't use the code colours outside code and terminal surfaces.
+- Don't add eyebrow labels, gradient text or stock imagery.

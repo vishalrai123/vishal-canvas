@@ -1,7 +1,7 @@
 import { getAllTasks, getProfile } from "@/lib/content";
+import { SITE_URL as SITE } from "@/lib/site";
 
 export const dynamic = "force-static";
-const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://vishalrai123.github.io/vishal-canvas";
 
 // JSON Feed 1.1 of every published project
 export function GET() {
