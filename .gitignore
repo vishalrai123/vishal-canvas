@@ -34,3 +34,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local-only
+.env*
+*.stackdump
+tsconfig.tsbuildinfo
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/live/
+.impeccable/hook.cache.json

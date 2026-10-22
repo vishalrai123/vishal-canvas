@@ -1,0 +1,55 @@
+# Product
+
+<!-- impeccable:product-schema 1 -->
+
+## Platform
+
+web
+
+## Stack
+
+Next.js (App Router) with TypeScript and Tailwind CSS, statically exported and hosted on GitHub Pages as a project site at https://vishalrai123.github.io/vishal-canvas/. No server, database or paid service.
+
+## Users
+
+Primary: recruiters and hiring managers screening a DevOps, platform and release engineering candidate. They skim: a strong headline, featured work, a quick resume and skills view, and a case study one click deeper. Secondary: engineering leads who read the case studies for depth.
+
+## Product Purpose
+
+A personal portfolio for Vishal Rai that presents 21 projects (and growing) written as task documents. Success is a recruiter understanding the scope and seniority of the work in under a minute, and a technical reader finding enough depth in a case study to trust it.
+
+## Positioning
+
+The site holds no hand-written project content. Every project, resume bullet and skill is generated from Markdown task files in the repository's `tasks/` folder, so adding one file adds a project, its resume entry and its skill tags with no code change.
+
+## Operating Context
+
+Task files follow a fixed 10-section template (overview, problem, objectives, approach, tools, challenges, outcomes, skills, resume highlights, summary). Content is deliberately written without employer, product or customer names because it describes work under confidentiality; the site must never surface such names or local file paths. The resume page must print cleanly to PDF from the browser.
+
+## Capabilities and Constraints
+
+- Static export only: no API routes, middleware, server actions or runtime rendering. Search and filters run in the browser over a JSON index built at the same time.
+- Content is the single source of truth; a missing `status` means published, `status: draft` hides a task.
+- Front matter has no dates; `period` is intentionally absent and must never be required or shown.
+- Six routes: home, work, case study, resume, skills, about.
+- Deployed by a GitHub Actions workflow from the `main` branch.
+
+## Brand Commitments
+
+Name shown: Vishal Rai. Direction chosen by the owner: dark cinematic. No stock photography.
+
+## Evidence on Hand
+
+21 task documents in `tasks/` with quantified outcomes in some (for example reductions of 30%, 40%, 60% and over 65%). No testimonials, logos, screenshots or press. State none of these and do not fabricate any; the GitHub profile link is the only external link supplied.
+
+## Product Principles
+
+1. Skimmable first, deep on demand: a recruiter gets the point in the first screen, a specialist gets the mechanism one click later.
+2. Only claims the task files make. Never invent metrics, employers, dates or links.
+3. Confidentiality over decoration: no names or paths that identify employers or internal systems.
+4. Adding content is adding a file.
+5. Fast and static: nothing that needs a server.
+
+## Accessibility & Inclusion
+
+Keyboard-navigable filters, visible focus, sufficient contrast in dark and light, and all motion disabled under `prefers-reduced-motion`.
