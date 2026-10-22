@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { getAllTasks, getProfile } from "@/lib/content";
-import { RESUME, SCENES, SITE_URL } from "@/lib/site";
+import { RESUME_URL, SCENES, SITE_URL } from "@/lib/site";
 import { CommandPalette, PaletteButton, type Command } from "@/components/CommandPalette";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Spotlight } from "@/components/Spotlight";
@@ -29,8 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const commands: Command[] = [
     ...SCENES.map((s) => ({ label: s.label, group: "section", scene: s.id })),
     ...getAllTasks().map((t) => ({ label: t.meta.title, group: "project", path: `/work/${t.meta.slug}/` })),
-    { label: "Download resume (1 page PDF)", group: "resume", href: RESUME.onePage },
-    { label: "Download resume (2 page PDF)", group: "resume", href: RESUME.twoPages },
+    { label: "Download resume (PDF)", group: "resume", href: RESUME_URL },
     { label: `Copy email ${p.email}`, group: "contact", action: "copy-email" },
     ...p.links.map((l) => ({ label: `Open ${l.label}`, group: "contact", href: l.url })),
     { label: "Toggle light / dark theme", group: "settings", action: "theme" },
@@ -48,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               ~/{p.name.toLowerCase().replace(/\s+/g, "-")}
             </Link>
             <div className="flex items-center gap-2">
-              <a href={RESUME.onePage} className="hidden h-8 items-center rounded-md bg-accent px-3 text-sm font-medium text-on-accent hover:brightness-110 sm:flex">
+              <a href={RESUME_URL} className="hidden h-8 items-center rounded-md bg-accent px-3 text-sm font-medium text-on-accent hover:brightness-110 sm:flex">
                 Resume
               </a>
               <PaletteButton />

@@ -86,9 +86,10 @@ describe("loader", () => {
 });
 
 describe("profile and privacy", () => {
-  it("profile.md parses with experience, education and contact", () => {
+  it("profile.md parses with groups, education and contact", () => {
     const p = getProfile();
-    expect(p.experience[0].groups.length).toBeGreaterThan(0);
+    expect(p.groups.length).toBeGreaterThan(0);
+    expect(p.years).toBe("3+");
     expect(p.education.length).toBeGreaterThan(0);
     expect(p.email).toContain("@");
     expect(p.summary.length).toBeGreaterThan(50);

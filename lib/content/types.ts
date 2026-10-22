@@ -33,23 +33,22 @@ export interface Task {
 export interface Profile {
   name: string;
   title: string;
-  degree: string;
   headline: string;
+  tagline: string;
+  years: string;
   location: string;
   email: string;
   links: { label: string; url: string }[];
   stack: string[];
-  summary: string;
-  experience: {
-    role: string;
-    company: string;
-    period: string;
-    groups: { name: string; items: { lead: string; text: string }[] }[];
-  }[];
-  achievements: { lead: string; text: string }[];
+  role: string;
+  company: string;
+  period: string;
+  focus: { name: string; text: string }[];
+  groups: { name: string; items: { lead: string; text: string }[] }[];
+  skills: { area: string; items: string[] }[];
   education: { school: string; degree: string; period: string }[];
   languages: { name: string; level: string }[];
-  competencies: { area: string; items: string[] }[];
+  summary: string;
 }
 
 export interface Ranked {

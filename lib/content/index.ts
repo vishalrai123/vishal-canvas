@@ -93,28 +93,24 @@ export const getSearchIndex = () =>
     summary: t.meta.oneLineSummary,
   }));
 
-const Lead = z.object({ lead: z.string(), text: z.string() });
 const ProfileSchema = z.object({
   name: z.string(),
   title: z.string(),
-  degree: z.string(),
   headline: z.string(),
+  tagline: z.string(),
+  years: z.string(),
   location: z.string(),
   email: z.string().email(),
   links: z.array(z.object({ label: z.string(), url: z.string().url() })),
   stack: z.array(z.string()),
-  experience: z.array(
-    z.object({
-      role: z.string(),
-      company: z.string(),
-      period: z.string(),
-      groups: z.array(z.object({ name: z.string(), items: z.array(Lead) })),
-    }),
-  ),
-  achievements: z.array(Lead),
+  role: z.string(),
+  company: z.string(),
+  period: z.string(),
+  focus: z.array(z.object({ name: z.string(), text: z.string() })),
+  groups: z.array(z.object({ name: z.string(), items: z.array(z.object({ lead: z.string(), text: z.string() })) })),
+  skills: z.array(z.object({ area: z.string(), items: z.array(z.string()) })),
   education: z.array(z.object({ school: z.string(), degree: z.string(), period: z.string() })),
   languages: z.array(z.object({ name: z.string(), level: z.string() })),
-  competencies: z.array(z.object({ area: z.string(), items: z.array(z.string()) })),
 });
 
 export function getProfile(file = path.resolve("profile.md")): Profile {

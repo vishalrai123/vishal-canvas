@@ -20,7 +20,7 @@ Edit `profile.md` (name, headline, location, email, links, experience, achieveme
 
 ## Resume (ATS-friendly)
 
-`resume/resume.md` holds the resume-only content, including the phone number. Run `npm run resume` (Windows, uses Edge to print) to regenerate four files in `public/resume/`: 1-page and 2-page versions, each as PDF and DOCX. The script checks each PDF has the expected page count. Commit the files to publish them; the site links to the PDFs.
+`resume/resume.md` holds the resume-only content, including the phone number, written from the task files. Run `npm run resume` (Windows, uses Edge to print). It writes the 1-page resume to `public/resume/vishal-rai-resume.pdf`, the only resume published and linked by the site, and writes the 2-page `vishal-rai-CV.pdf` plus DOCX versions of both to `resume/build/` (not committed). The script checks each PDF has the expected page count.
 
 ## Develop
 
@@ -45,7 +45,7 @@ The site is served from a project path, so `next.config.ts` sets `basePath` to `
 ```
 tasks/        the content: one Markdown file per project
 templates/    the task template
-profile.md    bio, experience, education, skills and contact (no phone)
+profile.md    bio, focus areas, experience groups, skills, education and contact (no phone)
 resume/       resume-only content; npm run resume renders public/resume/
 lib/content/  parser, validation and queries (the only code that reads files)
 app/          routes: home (scenes), case study per project, 404, sitemap, feed

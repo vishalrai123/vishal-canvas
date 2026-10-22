@@ -68,6 +68,8 @@ h1, h2, h3 { text-wrap: balance; letter-spacing: -0.025em; line-height: 1.1; }
 /* browser surfaces carry the palette */
 ::selection { background: var(--accent); color: var(--on-accent); }
 :focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 6px; }
+/* the palette's search row shows focus with its own border, so its input draws no ring */
+dialog input:focus-visible { outline: none; }
 * { scrollbar-color: var(--surface-2) var(--bg); }
 a { text-underline-offset: 0.2em; }
 input { caret-color: var(--link); }

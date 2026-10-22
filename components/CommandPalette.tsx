@@ -83,7 +83,7 @@ export function CommandPalette({ commands, email }: { commands: Command[]; email
       onClick={(e) => e.target === ref.current && ref.current?.close()}
       className="m-auto mt-[12vh] w-[min(40rem,calc(100vw-2rem))] rounded-xl border border-line bg-surface p-0 text-ink shadow-[0_16px_48px_rgb(1_4_9/0.6)] backdrop:bg-black/50"
     >
-      <div className="flex items-center gap-3 border-b border-line px-4">
+      <div className="flex items-center gap-3 border-b border-line px-4 transition-colors focus-within:border-link">
         <span className="font-mono text-link" aria-hidden="true">&gt;</span>
         <input
           autoFocus
@@ -95,7 +95,7 @@ export function CommandPalette({ commands, email }: { commands: Command[]; email
           onKeyDown={onKeyDown}
           placeholder="Jump to a section or project"
           aria-label="Search sections and projects"
-          className="w-full bg-transparent py-4 font-mono text-sm outline-none placeholder:text-muted"
+          className="min-w-0 flex-1 bg-transparent py-4 font-mono text-sm outline-none placeholder:text-muted focus-visible:outline-none"
         />
         <kbd className="rounded border border-line px-1.5 font-mono text-xs text-muted">esc</kbd>
       </div>
