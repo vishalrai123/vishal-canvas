@@ -8,7 +8,18 @@ import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { pathToFileURL } from "node:url";
 import matter from "gray-matter";
-import { BorderStyle, Document, Packer, Paragraph, TextRun } from "docx";
+import {
+  BorderStyle,
+  Document,
+  HorizontalPositionRelativeFrom,
+  ImageRun,
+  Packer,
+  Paragraph,
+  TextRun,
+  TextWrappingSide,
+  TextWrappingType,
+  VerticalPositionRelativeFrom,
+} from "docx";
 import { getProfile } from "../lib/content";
 
 type Variant = "resume" | "cv";
@@ -27,6 +38,8 @@ const BUILD = path.resolve("resume/build");
 const FILES = path.resolve("resume/files");
 const BROWSER = process.env.BROWSER_PATH ?? "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe";
 const NAVY = "1F3A5F";
+// circular headshot shown at the top left of every resume
+const PHOTO = fs.readFileSync(path.resolve("resume/photo.png"));
 
 const p = getProfile();
 const r = matter(fs.readFileSync(path.resolve("resume/resume.md"), "utf8")).data as {
@@ -85,10 +98,17 @@ li { margin: 0 0 ${tight ? "1.5px" : "2.5px"}; }
 .muted { color: #333; }
 .group { margin: 5px 0 1px; font-weight: bold; color: #333; }
 .skills p { margin: 0 0 1px; }
+.head { display: flex; align-items: center; gap: 14px; }
+.head img { width: ${tight ? "62px" : "70px"}; height: ${tight ? "62px" : "70px"}; flex: none; }
 </style></head><body>
+<header class="head">
+<img src="data:image/png;base64,${PHOTO.toString("base64")}" alt="${esc(p.name)}">
+<div>
 <h1>${esc(p.name)}</h1>
 <p class="title">${esc(r.title)}</p>
 <p class="contact">${contact.map(esc).join(" | ")}</p>
+</div>
+</header>
 
 <h2>Professional Summary</h2>
 <p>${esc(m.summary)}</p>
@@ -117,6 +137,8 @@ ${m.education.map((e) => `<div class="row"><p><b>${esc(e.degree)}</b>, ${esc(e.s
 function docx(v: Variant) {
   const m = model(v);
   const size = v === "resume" ? 20 : 21; // half-points
+  // sized to the four header lines (name, title, two contact lines) so all of them sit beside it
+  const photo = 80; // px
   const run = (text: string, o: { bold?: boolean; color?: string; size?: number } = {}) => new TextRun({ text, font: "Calibri", size, ...o });
   const heading = (text: string) =>
     new Paragraph({
@@ -130,9 +152,25 @@ function docx(v: Variant) {
     new Paragraph({ tabStops: [{ type: "right", position: 10400 }], spacing: { before: 60, after: 20 }, children: [...left, run(`\t${right}`)] });
 
   const children: Paragraph[] = [
-    new Paragraph({ children: [run(p.name, { bold: true, color: NAVY, size: 42 })] }),
+    new Paragraph({
+      children: [
+        new ImageRun({
+          type: "png",
+          data: PHOTO,
+          transformation: { width: photo, height: photo },
+          floating: {
+            horizontalPosition: { relative: HorizontalPositionRelativeFrom.MARGIN, offset: 0 },
+            verticalPosition: { relative: VerticalPositionRelativeFrom.PARAGRAPH, offset: 0 },
+            wrap: { type: TextWrappingType.SQUARE, side: TextWrappingSide.RIGHT },
+            margins: { right: 114300 },
+          },
+        }),
+        run(p.name, { bold: true, color: NAVY, size: 42 }),
+      ],
+    }),
     para([run(r.title, { size: 22 })], 20),
-    para([run(contact.join(" | "))], 60),
+    para([run(contact.slice(0, 3).join(" | "))], 0),
+    para([run(contact.slice(3).join(" | "))], 60),
     heading("Professional Summary"),
     para([run(m.summary)]),
     heading("Technical Skills"),
